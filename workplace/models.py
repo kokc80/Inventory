@@ -13,4 +13,3 @@ class Workplace(models.Model):
     w_cn = models.CharField(max_length=30, verbose_name="Номер кабинета")
     w_on = models.CharField(max_length=5, verbose_name="Отделение")
     w_vn = models.BooleanField(default=False, verbose_name="VipNet")
-
