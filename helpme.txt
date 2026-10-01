@@ -1,0 +1,71 @@
+Привязка токена в PyCharm 2026.2.2 зависит от контекста использования. Рассмотрим несколько распространённых сценариев.
+Для работы с HTTP-запросами и OAuth 2.0
+В PyCharm можно настроить аутентификацию для HTTP-запросов с использованием OAuth 2.0. Для этого нужно:
+    В файле с расширением  .http
+    в списке Run with выбрать окружение, к которому будет добавляться конфигурация аутентификации.
+    В панели инструментов нажать Add → Auth Configuration. Это добавит шаблон конфигурации аутентификации в публичный
+    файл окружения в объект Auth под Security выбранного окружения.
+    Заменить placeholder
+    auth-id
+    на осмысленное имя, которое будет использоваться для ссылки на эту конфигурацию в
+    .http
+    -файле.
+    Указать параметры аутентификации. Они зависят от выбранного Grant Type. При заполнении параметров можно
+    использовать помощь PyCharm: начинать ввод имени параметра или нажимать
+    Ctrl+Space
+    для списка доступных JSON-ключей.
+    Использовать переменную
+    {{$auth.token()}}
+    , передав ей имя конфигурации аутентификации (например,
+    {{$auth.token("my-config")}}
+    ). Эту переменную можно применять в заголовке авторизации запроса или в параметрах запроса.
+    Нажать Run для отправки запроса. Перед доступом к защищённому ресурсу HTTP Client отправит запрос на сервер
+    авторизации для получения токена доступа. При появлении запроса нужно завершить процесс аутентификации.
+ jetbrains.com.cnjetbrains.com
+Полученный токен и обновлённый токен можно проверить в журнале аутентификации HTTP Client или в окне Services.
+jetbrains.com.cn
+Для работы с GitHub
+Чтобы использовать токен для аутентификации в PyCharm при работе с GitHub, нужно:
+    Сгенерировать персональный токен доступа (Personal Access Token) в настройках аккаунта GitHub:
+    Settings → Developer settings → Personal access tokens → Generate new token.
+    Указать название токена, выбрать срок действия и при необходимости добавить разрешения
+    (например, для репозитория, workflow, gist).
+    В настройках PyCharm перейти в раздел GitHub и добавить новые учётные данные, введя сгенерированный токен вместо
+    обычного имени пользователя и пароля.
+ stackoverflow.com
+Важно сохранить сгенерированный токен, так как после закрытия страницы он станет недоступен. github.com
+
+
+
+00) venv\Scripts\activate
+
+01) pip install poetry
+
+02) установка пакетов? можно через poetry add <pkg> или же pip install <pkg>
+    pip install django
+    pip install djangorestframework # (config.settings.py.INSTALLED_APPS)
+    pip install djangorestframework-simplejwt  # (config.settings.py.INSTALLED_APPS)
+    pip install drf-yasg  # (config.settings.py.INSTALLED_APPS)
+    pip install psycopg2
+    python -m pip install Pillow #(аватар)
+    pip install python-dotenv
+    pip freeze > requirements.txt
+03) инициализация проекта django
+        django-admin startproject config .
+04) создание нового приложения
+    python manage.py startapp office #кабинеты
+    python manage.py startapp workplace #АРМ
+    python manage.py startapp comp #компы
+    python manage.py startapp printer #принтеры
+    python manage.py startapp users #
+    (config.settings.py.INSTALLED_APPS)
+05) Добавляем в config\settings.py наши приложения в переменную # (config.settings.py.INSTALLED_APPS)
+    Не забываем .gitignore, requirements.txt
+
+Запуск сервера разработки: python manage.py runserver
+Применение миграций: python manage.py migrate
+Для проверки запускаем приложение: python manage.py runserver
+python manage.py migrate auth zero откат пользовательских миграций (аутентификации)
+
+PullRequest 20260917 20:58 https://github.com/kokc80/inventory/pull/1
+D:\WORK\PythonEdu\docs\23.Django.ORM Sample\23.2. Настройка работы с PostgreSQL.mhtml
