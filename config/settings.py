@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'office',
     'printer',
     'users',
-    'workplace'
+    'workplace',
 ]
 
 MIDDLEWARE = [
