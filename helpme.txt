@@ -36,7 +36,6 @@ jetbrains.com.cn
 Важно сохранить сгенерированный токен, так как после закрытия страницы он станет недоступен. github.com
 
 
-
 00) venv\Scripts\activate
 
 01) pip install poetry
