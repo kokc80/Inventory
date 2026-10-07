@@ -1,3 +1,6 @@
+import re
+import os
+
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -98,7 +101,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name="ID чата в Telegram",
         null=True,
         blank=True,
-        help_text = "Введите ID чата в Telegram",
+        help_text="Введите ID чата в Telegram",
     )
     objects = CustomUserManager()
 

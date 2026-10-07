@@ -2,9 +2,10 @@ from django.db import models
 
 # Create your models here.
 
+
 class Comp(models.Model):
-    c_name = models.CharField(max_length=100, verbose_name = 'Название компьютера' )
-    c_pc_ip = models.CharField(max_length=15, verbose_name = 'IP Address')
+    c_name = models.CharField(max_length=100, verbose_name='Название компьютера')
+    c_pc_ip = models.CharField(max_length=15, verbose_name='IP Address')
     c_ddr = models.CharField(max_length=6, verbose_name='Память ДДР XXX Gb')
     c_hdd = models.CharField(max_length=100, verbose_name='Память HDD')
     c_os = models.CharField(max_length=12, verbose_name='Операционная система')
