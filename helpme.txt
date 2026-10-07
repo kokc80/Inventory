@@ -67,8 +67,13 @@ jetbrains.com.cn
     Конфликты. Если при следующей отправке вы получите конфликт (например, кто-то другой изменил ту же ветку),
     разрешите его локально, а затем выполните git push --force (но используйте эту опцию с осторожностью)
 
+<УСТАНОВКА POETRY>
+
+Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | python
+
 <<СОЗДАНИЕ РЕПОЗИТОРИЯ>>
 
+!!! venv\Scripts\activate
 00) venv\Scripts\activate
 01) pip install poetry
 02) установка пакетов? можно через poetry add <pkg> или же pip install <pkg>
@@ -99,3 +104,9 @@ python manage.py migrate auth zero откат пользовательских �
 
 PullRequest 20260917 20:58 https://github.com/kokc80/inventory/pull/1
 D:\WORK\PythonEdu\docs\23.Django.ORM Sample\23.2. Настройка работы с PostgreSQL.mhtml
+
+ПЕРВЫЙ Pull Request
+https://github.com/kokc80/Inventory/pull/1
+
+??? УСТАНОВКА POETRY
+Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | python
