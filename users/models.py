@@ -1,7 +1,7 @@
-import re
 import os
+import re
 
-from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager, PermissionsMixin)
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -18,9 +18,7 @@ def validate_avatar_extension(value):
     ext = os.path.splitext(value.name)[1].lower()
     valid_extensions = [".jpg", ".jpeg", ".png", ".gif"]
     if ext not in valid_extensions:
-        raise ValidationError(
-            f'Поддерживаются только следующие форматы: {", ".join(valid_extensions)}'
-        )
+        raise ValidationError(f'Поддерживаются только следующие форматы: {", ".join(valid_extensions)}')
 
 
 def validate_avatar_size(value):
@@ -47,9 +45,7 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get("is_staff") is not True:
             raise ValueError("У суперпользователя должно быть значение is_staff=True.")
         if extra_fields.get("is_superuser") is not True:
-            raise ValueError(
-                "У суперпользователя должно быть значение is_superuser=True."
-            )
+            raise ValueError("У суперпользователя должно быть значение is_superuser=True.")
 
         return self.create_user(email, password, **extra_fields)
 
@@ -93,9 +89,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name="Суперпользователь",
         help_text="Предоставляет все права",
     )
-    date_joined = models.DateTimeField(
-        auto_now_add=True, verbose_name="Дата регистрации"
-    )
+    date_joined = models.DateTimeField(auto_now_add=True, verbose_name="Дата регистрации")
     tg_chat_id = models.CharField(
         max_length=50,
         verbose_name="ID чата в Telegram",

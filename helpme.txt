@@ -93,6 +93,7 @@ Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | pyth
     python manage.py startapp comp #компы
     python manage.py startapp printer #принтеры
     python manage.py startapp users #
+    python manage.py startapp kii #данные КИИ
     (config.settings.py.INSTALLED_APPS)
 05) Добавляем в config\settings.py наши приложения в переменную # (config.settings.py.INSTALLED_APPS)
     Не забываем .gitignore, requirements.txt

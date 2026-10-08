@@ -1,6 +1,8 @@
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import AllowAny
+
 from users.serializers import UserSerializer
+
 # from django.shortcuts import render
 
 
@@ -23,5 +25,6 @@ class UserCreateAPIView(CreateAPIView):
         else:
             # Если пароля нет, сохраняем без изменения пароля
             user.save()
+
 
 # Create your views here.

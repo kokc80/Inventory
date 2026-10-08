@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Office(models.Model):
     office_number = models.CharField(max_length=10, unique=True, verbose_name="Номер кабинета")
     office_level = models.CharField(max_length=2, unique=True, verbose_name="Тип подразделения")
@@ -22,4 +21,4 @@ class OfficeLevel(models.Model):
     office_level_name = models.CharField(max_length=20, verbose_name="Наименование подразделения")
 
     def __str__(self):
-        return (self.office_level_name + " (" + self.office_level + ")")
+        return f"{self.office_level_name} ({self.office_level} )"
