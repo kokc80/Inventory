@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "printer",
     "users",
     "workplace",
+    "kii",
 ]
 
 MIDDLEWARE = [

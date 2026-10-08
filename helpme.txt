@@ -81,8 +81,8 @@ Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | pyth
     pip install djangorestframework # (config.settings.py.INSTALLED_APPS)
     pip install djangorestframework-simplejwt  # (config.settings.py.INSTALLED_APPS)
     pip install drf-yasg  # (config.settings.py.INSTALLED_APPS)
-    pip install psycopg2
-    python -m pip install Pillow #(аватар)
+    pip install psycopg2 # postgresql
+    python -m pip install Pillow # картинки
     pip install python-dotenv
     pip freeze > requirements.txt
 03) инициализация проекта django
