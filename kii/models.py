@@ -11,4 +11,4 @@ class Kii(models.Model):
         verbose_name_plural = "Данные по КИИ"
 
     def __str__(self):
-        return f"VP - {self.k_vp_name} DL - {self.office_arm}"
+        return f"VP - {self.k_vp_name} DL - {self.k_dl_name} Crypto - {self.k_crypto}"

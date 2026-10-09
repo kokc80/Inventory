@@ -95,13 +95,15 @@ Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | pyth
     python manage.py startapp users #
     python manage.py startapp kii #данные КИИ
     (config.settings.py.INSTALLED_APPS)
-05) Добавляем в config\settings.py наши приложения в переменную # (config.settings.py.INSTALLED_APPS)
+05) Добавляем в config\settings.py AUTH_USER_MODEL = "users.User"
+    Добавляем в config\settings.py наши приложения в переменную # (config.settings.py.INSTALLED_APPS)
     Не забываем .gitignore, requirements.txt
 
 Запуск сервера разработки: python manage.py runserver
 Применение миграций: python manage.py migrate
 Для проверки запускаем приложение: python manage.py runserver
 python manage.py migrate auth zero откат пользовательских миграций (аутентификации)
+python manage.py createsuperuser - создание su kokc@inbox.ru 678330
 
 PullRequest 20260917 20:58 https://github.com/kokc80/inventory/pull/1
 D:\WORK\PythonEdu\docs\23.Django.ORM Sample\23.2. Настройка работы с PostgreSQL.mhtml
