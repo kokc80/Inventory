@@ -24,8 +24,9 @@ class Workplace(models.Model):
     w_level = models.IntegerField(choices=Level.choices, default=Level.LEVEL_0, verbose_name="Уровень АРМа")
     w_hostname = models.CharField(max_length=10, default="WRK", verbose_name="ХОСТ АРМа")
     w_comp = models.ForeignKey(Comp, null=True, on_delete=models.SET_NULL, related_name="comps_workplaces")
-    w_printer = models.ForeignKey(Printer, null=True, on_delete=models.SET_NULL, related_name="printers_workplaces",
-                                  blank=True)
+    w_printer = models.ForeignKey(
+        Printer, null=True, on_delete=models.SET_NULL, related_name="printers_workplaces", blank=True
+    )
     w_ip = models.GenericIPAddressField(null=True, blank=True, verbose_name="IP адрес")
     w_display = models.CharField(blank=True, max_length=50, verbose_name="Монитор")
     w_kii = models.ForeignKey(Kii, null=True, on_delete=models.SET_NULL, related_name="kii_ids")

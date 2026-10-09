@@ -16,7 +16,10 @@ class Comp(models.Model):
     class Meta:
         verbose_name = "Компьютер АРМа"
         verbose_name_plural = "Компьютеры АРМа"
-        ordering = ("c_name", "c_install", )
+        ordering = (
+            "c_name",
+            "c_install",
+        )
 
 
 # готов

@@ -5,12 +5,23 @@ from .models import Comp
 # показать явные конкретные поля
 @admin.register(Comp)
 class CompAdmin(admin.ModelAdmin):
-    list_display = ['c_name', 'c_ddr', 'c_hdd', 'c_os', 'c_install']
+    list_display = ["c_name", "c_ddr", "c_hdd", "c_os", "c_install"]
     # показать все поля ???
     # list_display = [field.name for field in Comp._meta.get_fields()]
-    list_filter = ("c_name", "c_os", "c_ddr",)
-    search_fields = ("c_name", "c_os",)
-    ordering = ("c_name", "c_install",)
+    list_filter = (
+        "c_name",
+        "c_os",
+        "c_ddr",
+    )
+    search_fields = (
+        "c_name",
+        "c_os",
+    )
+    ordering = (
+        "c_name",
+        "c_install",
+    )
+
 
 # # показать все поля
 # @admin.register(Comp)
