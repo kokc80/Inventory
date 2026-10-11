@@ -41,6 +41,6 @@ class Workplace(models.Model):
         return f"{self.w_hostname} ({self.w_worker})  - {self.w_comp}"
 
     class Meta:
-        ordering = ["w_hostname"]
+        ordering = ["w_worker","w_hostname"]
         verbose_name = "АРМ"
         verbose_name_plural = "АРМы"

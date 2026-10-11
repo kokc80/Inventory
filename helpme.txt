@@ -100,7 +100,9 @@ Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | pyth
     Не забываем .gitignore, requirements.txt
 
 Запуск сервера разработки: python manage.py runserver
-Применение миграций: python manage.py migrate
+Применение миграций:
+    poetry run python manage.py makemigrations
+    poetry run python manage.py migrate
 Для проверки запускаем приложение: python manage.py runserver
 python manage.py migrate auth zero откат пользовательских миграций (аутентификации)
 python manage.py createsuperuser - создание su kokc@inbox.ru 678330
@@ -113,3 +115,8 @@ https://github.com/kokc80/Inventory/pull/1
 
 ??? УСТАНОВКА POETRY
 Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | python
+
+СОХРАНЕНИЕ ДАННЫХ
+python manage.py dumpdata --exclude=contenttypes --exclude=auth.permission --output=full_backup.json
+ЗАГРУЗКА ДАННЫХ
+python manage.py loaddata data.json
