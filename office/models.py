@@ -11,4 +11,4 @@ class Office(models.Model):
         ordering = ("office_number",)
 
     def __str__(self):
-        return " №" + self.office_number +" " +self.office_name
+        return " №" + self.office_number + " " + self.office_name
