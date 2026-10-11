@@ -11,15 +11,11 @@ class Comp(models.Model):
     c_install = models.DateField(null=True, verbose_name="Дата установки")
 
     def __str__(self):
-        return f"{self.pk} - {self.c_name} {self.c_ddr} {self.c_hdd} {self.c_os} {self.c_install}"
+        return f"{self.c_name} {self.c_ddr} {self.c_hdd} {self.c_os} {self.c_install}"
 
     class Meta:
         verbose_name = "Компьютер АРМа"
         verbose_name_plural = "Компьютеры АРМа"
-        ordering = (
-            "c_name",
-            "c_install",
-        )
-
+        ordering = ("c_name", "c_install", )
 
 # готов

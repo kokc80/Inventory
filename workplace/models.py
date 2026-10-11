@@ -27,7 +27,7 @@ class Workplace(models.Model):
     w_printer = models.ForeignKey(
         Printer, null=True, on_delete=models.SET_NULL, related_name="printers_workplaces", blank=True
     )
-    w_ip = models.GenericIPAddressField(null=True, blank=True, verbose_name="IP адрес")
+    w_ip = models.GenericIPAddressField(null=True, blank=True, verbose_name="IP адрес", default="10.81.58.1")
     w_display = models.CharField(blank=True, max_length=50, verbose_name="Монитор")
     w_kii = models.ForeignKey(Kii, null=True, on_delete=models.SET_NULL, related_name="kii_ids")
 
@@ -41,6 +41,6 @@ class Workplace(models.Model):
         return f"{self.w_hostname} ({self.w_worker})  - {self.w_comp}"
 
     class Meta:
-        ordering = ["w_worker","w_hostname"]
         verbose_name = "АРМ"
         verbose_name_plural = "АРМы"
+        ordering = ["w_worker", "w_seat_number"]

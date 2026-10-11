@@ -117,6 +117,6 @@ https://github.com/kokc80/Inventory/pull/1
 Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing | python
 
 СОХРАНЕНИЕ ДАННЫХ
-python manage.py dumpdata --exclude=contenttypes --exclude=auth.permission --output=full_backup.json
+python manage.py dumpdata --exclude=contenttypes --exclude=auth.permission --output=data_back.json
 ЗАГРУЗКА ДАННЫХ
-python manage.py loaddata data.json
+python manage.py loaddata data_back.json

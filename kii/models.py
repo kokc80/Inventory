@@ -2,9 +2,9 @@ from django.db import models
 
 
 class Kii(models.Model):
-    k_vp_name = models.CharField(max_length=15, unique=True, verbose_name="АП ВипНета")
-    k_dl_name = models.CharField(max_length=15, unique=True, verbose_name="Номер DallasLock")
-    k_crypto = models.CharField(max_length=15, unique=True, verbose_name="Версия Криптопро")
+    k_vp_name = models.CharField(max_length=15, verbose_name="АП ВипНета")
+    k_dl_name = models.CharField(max_length=15, verbose_name="Номер DallasLock")
+    k_crypto = models.CharField(max_length=15, verbose_name="Версия Криптопро")
 
     class Meta:
         verbose_name = "Данные по КИИ"

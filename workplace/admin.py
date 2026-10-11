@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Workplace
+from django.db.models import F
 
 
 # показать все поля
@@ -7,4 +8,10 @@ from .models import Workplace
 class WorkplaceAdmin(admin.ModelAdmin):
     list_display = ["w_worker", "w_office", "w_level", "w_hostname", "w_comp", "w_printer", "w_ip", "w_display",
                     "w_kii", "w_inv_number", "w_ser_number", "w_seat_number", "w_status", "w_last_updated"]
-    search_fields = ["w_worker", "w_hostname"]
+    ordering = ["w_level", "w_office", "w_seat_number"]
+    search_fields = ["w_hostname", "w_ip", "w_worker"]
+    list_filter = ["w_office","w_level"]
+
+    # def get_ordering(self, request):
+    #     # Сортируем сначала по работнику, потом по номеру места, NULL в конец
+    #     return ["w_worker", F("w_seat_number").asc(nulls_last=True)]
