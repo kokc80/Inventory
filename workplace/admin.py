@@ -15,12 +15,12 @@ class WorkplaceAdmin(admin.ModelAdmin):
         "w_comp",
         "w_printer",
         "w_ip",
+        "w_vn",
         "w_display",
-        "w_kii",
-        "w_inv_number",
-        "w_ser_number",
         "w_seat_number",
         "w_status",
+        "w_inv_number",
+        "w_ser_number",
         "w_last_updated",
     ]
     ordering = ["w_level", "w_office", "w_seat_number"]

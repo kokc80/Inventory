@@ -1,11 +1,12 @@
-from rest_framework.routers import SimpleRouter
+# comp\urls.py
+
 
 from django.urls import path
-from comp.apps import CompConfig
-from comp.views import CompViewSet
-urlpatterns = []
-app_name = CompConfig.name
-router = SimpleRouter()
-router.register("", CompViewSet)
+from . import views
 
-urlpatterns += router.urls
+app_name = 'comp'
+
+urlpatterns = [
+    path('', views.comp_list, name='comp_list'),
+    path('<int:pk>/', views.comp_detail, name='comp_detail'),
+]

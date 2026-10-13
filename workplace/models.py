@@ -1,7 +1,5 @@
 from django.db import models
-
 from comp.models import Comp
-from kii.models import Kii
 from office.models import Office
 from printer.models import Printer
 
@@ -18,6 +16,9 @@ class Workplace(models.Model):
         LEVEL_1 = 1, "ПОЛИКЛИНИКА"
         LEVEL_2 = 2, "CТАЦИОНАР"
         LEVEL_3 = 3, "ПРОЧИЕ"
+        LEVEL_4 = 4, "ПТД"
+        LEVEL_6 = 5, "ВА"
+        LEVEL_5 = 6, "ФАП"
 
     w_worker = models.CharField(max_length=50, unique=True, verbose_name="Работник АРМа")
     w_office = models.ForeignKey(Office, null=True, on_delete=models.SET_NULL, related_name="offices_workplaces")
@@ -28,9 +29,10 @@ class Workplace(models.Model):
         Printer, null=True, on_delete=models.SET_NULL, related_name="printers_workplaces", blank=True
     )
     w_ip = models.GenericIPAddressField(null=True, blank=True, verbose_name="IP адрес", default="10.81.58.1")
+    w_vn = models.CharField(max_length=20, default=" ", verbose_name="ВипНет АП")
     w_display = models.CharField(blank=True, max_length=50, verbose_name="Монитор")
-    w_kii = models.ForeignKey(Kii, null=True, on_delete=models.SET_NULL, related_name="kii_ids")
-
+    w_os = models.CharField(max_length=20, default="Windows 10", verbose_name="Операционная система")
+    w_install = models.DateField(null=True, verbose_name="Дата установки")
     w_inv_number = models.CharField(max_length=50, unique=True, null=True, blank=True, verbose_name="Инв. номер")
     w_ser_number = models.CharField(max_length=50, null=True, blank=True, verbose_name="Серийный номер")
     w_seat_number = models.CharField(max_length=10, null=True, blank=True, verbose_name="Номер места/стола")
@@ -43,4 +45,4 @@ class Workplace(models.Model):
     class Meta:
         verbose_name = "АРМ"
         verbose_name_plural = "АРМы"
-        ordering = ["w_worker", "w_seat_number"]
+        ordering = ["w_level", "w_office", "w_seat_number"]

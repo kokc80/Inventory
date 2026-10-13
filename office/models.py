@@ -8,7 +8,7 @@ class Office(models.Model):
     class Meta:
         verbose_name = "Кабинет"
         verbose_name_plural = "Кабинеты"
-        ordering = ("office_number",)
+        ordering = ["office_name",]
 
     def __str__(self):
-        return " №" + self.office_number + " " + self.office_name
+        return self.office_name + " - " + self.office_number
