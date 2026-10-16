@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Компьютеры АРМа</title>
+</head>
+<body>
+    <h1>Компьютеры АРМа (инвентарь)</h1>
+
+    {% if comps %}
+        <ul>
+            {% for comp in comps %}
+                <li>
+                    <a href="{% url 'comp:comp_detail' comp.pk %}">
+                        {{ comp.c_name }}
+                        ({{ comp.c_ddr }} / {{ comp.c_hdd }})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>В инвентаре пока нет компьютеров.</p>
+    {% endif %}
+
+    <p><a href="{% url 'admin:index' %}">Перейти в админку</a></p>
+</body>
+</html>
