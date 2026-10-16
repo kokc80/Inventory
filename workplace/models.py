@@ -1,4 +1,7 @@
+# workplace\models.py
+
 from django.db import models
+
 from comp.models import Comp
 from office.models import Office
 from printer.models import Printer
@@ -38,6 +41,7 @@ class Workplace(models.Model):
     w_seat_number = models.CharField(max_length=10, null=True, blank=True, verbose_name="Номер места/стола")
     w_status = models.CharField(max_length=20, choices=Status.choices, default=Status.ACTIVE, verbose_name="Статус")
     w_last_updated = models.DateTimeField(auto_now=True, verbose_name="Дата последнего обновления")
+    w_descr = models.CharField(max_length=100, verbose_name="Примечание", null=True, blank=True, default="_")
 
     def __str__(self):
         return f"{self.w_hostname} ({self.w_worker})  - {self.w_comp}"

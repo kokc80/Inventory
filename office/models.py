@@ -4,6 +4,7 @@ from django.db import models
 class Office(models.Model):
     office_number = models.CharField(max_length=25, unique=True, verbose_name="Номер кабинета")
     office_name = models.CharField(max_length=100, verbose_name="Название кабинета")
+    office_descr =models.CharField(ma)
 
     class Meta:
         verbose_name = "Кабинет"

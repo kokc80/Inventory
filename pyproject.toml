@@ -57,3 +57,4 @@ exclude = '''
   )/
 )'''
 
+disable_error_code = ["var-annotated", "no-untyped-def"]

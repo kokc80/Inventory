@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Workplace
 
 # from django.db.models import F
@@ -12,9 +13,9 @@ class WorkplaceAdmin(admin.ModelAdmin):
         "w_office",
         "w_level",
         "w_hostname",
+        "w_ip",
         "w_comp",
         "w_printer",
-        "w_ip",
         "w_vn",
         "w_display",
         "w_seat_number",
