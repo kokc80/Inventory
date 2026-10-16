@@ -6,7 +6,7 @@ from .models import Comp
 # показать явные конкретные поля
 @admin.register(Comp)
 class CompAdmin(admin.ModelAdmin):
-    list_display = ["c_name", "c_ddr", "c_hdd"]
+    list_display = ["c_name", "c_ddr", "c_hdd", "c_descr"]
     # показать все поля ???
     # list_display = [field.name for field in Comp._meta.get_fields()]
     list_filter = (

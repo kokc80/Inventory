@@ -13,7 +13,7 @@ class CompSerializer(serializers.ModelSerializer):
 class CompDetailSerializer(serializers.ModelSerializer):
     comp_count = SerializerMethodField()
 
-    def get_conp_count(self, comp):
+    def get_comp_count(self, comp):
         return Comp.objects.filter(comp=comp).count()
 
     class Meta:
