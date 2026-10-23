@@ -23,9 +23,23 @@ class Workplace(models.Model):
         LEVEL_6 = 5, "ВА"
         LEVEL_5 = 6, "ФАП"
 
+    class Level_2 (models.IntegerChoices):
+        LEVEL_0 = 0, "Дет Отд"
+        LEVEL_1 = 1, "Хир Отд"
+        LEVEL_2 = 2, "Тер Отд"
+        LEVEL_3 = 3, "СМП"
+        LEVEL_4 = 4, "АДМ"
+        LEVEL_5 = 5, "ПОЛ"
+        LEVEL_6 = 6, "Акуш Отд"
+        LEVEL_7 = 7, "Бест ФАП"
+        LEVEL_8 = 8, "Линд ФАП"
+        LEVEL_9 = 9, "Кыст ВА"
+        LEVEL_10 = 10, "ПТД"
+
     w_worker = models.CharField(max_length=50, unique=True, verbose_name="Работник АРМа")
     w_office = models.ForeignKey(Office, null=True, on_delete=models.SET_NULL, related_name="offices_workplaces")
     w_level = models.IntegerField(choices=Level.choices, default=Level.LEVEL_0, verbose_name="Уровень АРМа")
+    w_level_2 = models.IntegerField(choices=Level_2.choices, default=Level_2.LEVEL_0, verbose_name="Уровень Своды")
     w_hostname = models.CharField(max_length=10, default="WRK", verbose_name="ХОСТ АРМа")
     w_comp = models.ForeignKey(Comp, null=True, on_delete=models.SET_NULL, related_name="comps_workplaces")
     w_printer = models.ForeignKey(
@@ -49,4 +63,4 @@ class Workplace(models.Model):
     class Meta:
         verbose_name = "АРМ"
         verbose_name_plural = "АРМы"
-        ordering = ["w_level", "w_office", "w_seat_number"]
+        ordering = ["w_level", "w_level_2", "w_office", "w_seat_number", "w_vn"]

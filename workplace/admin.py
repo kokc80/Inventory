@@ -11,19 +11,20 @@ class WorkplaceAdmin(admin.ModelAdmin):
     list_display = [
         "w_worker",
         "w_office",
+        "w_level_2",
         "w_level",
         "w_hostname",
         "w_ip",
-        "w_comp",
         "w_vn",
-        "w_display",
-        "w_printer",
-        "w_seat_number",
         "w_status",
+        "w_printer",
+        "w_display",
+        "w_comp",
+        "w_seat_number",
         "w_inv_number",
         "w_ser_number",
         "w_last_updated",
     ]
     ordering = ["w_level", "w_office", "w_seat_number"]
     search_fields = ["w_hostname", "w_ip", "w_worker"]
-    list_filter = ["w_office", "w_level"]
+    list_filter = ["w_level", "w_level_2", "w_vn"]
